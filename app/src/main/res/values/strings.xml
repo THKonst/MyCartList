@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">MyCartList</string>
-    <string name="text_1" />
+    <string name="text_1">Привет, Андрей!</string>
 </resources>
