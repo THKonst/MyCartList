@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MyCartList</string>
+    <string name="add_item_title">Новая запись</string>
     <string name="text_1">Привет, Андрей!</string>
+    <string name="hint_name">Название</string>
+    <string name="hint_price">0₽</string>
+    <string name="plus_button">add_plus</string>
+    <string name="hint_price">0₽</string>
 </resources>
