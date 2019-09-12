@@ -43,14 +43,14 @@
             android:inputType="numberDecimal"
             android:maxLines="1"></EditText>
 
-        <ImageButton
+        <Button
             android:id="@+id/add_btn"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginStart="22dp"
             android:contentDescription="@string/plus_button"
             android:enabled="false"
-            android:src="@drawable/ic_add_black_24dp"></ImageButton>
+            android:background="@drawable/ic_add_black_24dp"></Button>
 
 
     </LinearLayout>

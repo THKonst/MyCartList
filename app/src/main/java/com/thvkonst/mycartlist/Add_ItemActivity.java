@@ -5,8 +5,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +15,7 @@ public class Add_ItemActivity extends AppCompatActivity {
     private static final String TAG = "Add_ItemActivity";
     private EditText name;
     private EditText price;
-    private ImageButton addBtn;
+    private Button addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
