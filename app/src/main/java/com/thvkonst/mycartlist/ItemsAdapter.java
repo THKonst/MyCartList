@@ -22,7 +22,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
     public ItemsAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
         view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_record, parent, false);
+                .inflate(R.layout.item, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -68,7 +68,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
 
         public void applyData(Record record){
             title.setText(record.getTitle());
-            price.setText(String.valueOf(record.getPrice()));
+            price.setText(String.valueOf(record.getPrice())+" \u20BD");
             //Spannable spannabletext = new SpannableString(String.valueOf(record.getPrice())+"@string/symbol_rbl");
 
             // spannabletext.setSpan(new  );

@@ -7,4 +7,8 @@
     <string name="hint_price">0.00</string>
     <string name="plus_button">add_plus</string>
     <string name="symbol_rbl">₽</string>
+    <string name="tab_one">Нужно купить</string>
+    <string name="tab_two">Уже куплено</string>
+    <string name="tab_three">Итого:</string>
+
 </resources>
