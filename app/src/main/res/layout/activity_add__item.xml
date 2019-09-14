@@ -29,10 +29,15 @@
             android:hint="@string/hint_name"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:imeOptions="actionNext"/>
 
         <EditText
             android:id="@+id/price"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -50,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/symbol_rbl"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="center_horizontal"/>
 

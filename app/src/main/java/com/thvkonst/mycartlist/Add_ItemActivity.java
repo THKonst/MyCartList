@@ -27,7 +27,7 @@ public class Add_ItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__item);
 
-        setTitle(R.string.add_item_title);
+       // setTitle(R.string.add_item_title);
 
         name = findViewById(R.id.name);
         price = findViewById(R.id.price);
