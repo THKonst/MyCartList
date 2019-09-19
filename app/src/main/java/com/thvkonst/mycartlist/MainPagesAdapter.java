@@ -1,8 +1,7 @@
 package com.thvkonst.mycartlist;
 
-import android.os.Bundle;
+import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,46 +9,41 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class MainPagesAdapter extends FragmentPagerAdapter {
 
+    private static final int PAGE_NEED = 0;
+    private static final int PAGE_DONE = 1;
+    private static final int PAGE_BALANCE = 2;
 
-    public MainPagesAdapter(FragmentManager fm) {
+    private String[] titles;
+
+    public MainPagesAdapter(FragmentManager fm, Context context) {
+
         super(fm);
+        titles = context.getResources().getStringArray(R.array.tab_title);
     }
 
-    @NonNull
     @Override
     public Fragment getItem(int position) {
 
-        if (position ==0){
-            Fragment fragment = new ItemsFragment();
+        switch (position){
+            case PAGE_NEED:
+               return ItemsFragment.createItemsFragment(ItemsFragment.TYPE_NEED);
+            case PAGE_DONE:
+                return ItemsFragment.createItemsFragment(ItemsFragment.TYPE_DONE);
+            case PAGE_BALANCE:
+                return ItemsFragment.createItemsFragment(ItemsFragment.TYPE_BALANCE);
 
-            Bundle bundle = new Bundle();
-            bundle.putInt(ItemsFragment.TYPE_KEY, ItemsFragment.TYPE_NEED);
-
-            fragment.setArguments(bundle);
-            return fragment;
-        } else if (position ==1){
-            Fragment fragment = new ItemsFragment();
-
-            Bundle bundle = new Bundle();
-            bundle.putInt(ItemsFragment.TYPE_KEY, ItemsFragment.TYPE_DONE);
-
-            fragment.setArguments(bundle);
-            return fragment;
+                default:
+                    return null;
         }
-        return null;
+
     }
 
     @Override
-    public int getCount() {return 2;}
+    public int getCount() {return 3;}
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        if (position ==0){
-            return "Надо купить";
-        } else if (position ==1){
-            return "Уже куплено";
-        }
-        return null;
+        return titles[position];
     }
 }

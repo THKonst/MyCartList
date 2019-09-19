@@ -14,12 +14,27 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ItemsFragment extends Fragment {
 
     private static final int TYPE_UNKNOWN = -1;
+
     public static final int TYPE_NEED = 1;
     public static final int TYPE_DONE = 2;
+    public static final int TYPE_BALANCE = 3;
 
-    public static final String TYPE_KEY = "type";
-
+    private static final String TYPE_KEY = "type";
     private int type;
+
+    public static ItemsFragment createItemsFragment(int type){
+        ItemsFragment fragment = new ItemsFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt(ItemsFragment.TYPE_KEY, ItemsFragment.TYPE_NEED);
+        bundle.putInt(ItemsFragment.TYPE_KEY, ItemsFragment.TYPE_DONE);
+        bundle.putInt(ItemsFragment.TYPE_KEY, ItemsFragment.TYPE_BALANCE);
+
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+
 
     private RecyclerView recycler;
     private ItemsAdapter adapter;
@@ -50,8 +65,21 @@ public class ItemsFragment extends Fragment {
         recycler = view.findViewById(R.id.list);
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         recycler.setAdapter(adapter);
+
+//        loadItems();
     }
+
+//    private void loadItems(){
+//        List<Record> items = new ArrayList<>();
+//        items.add(new Record("Хлеб",22.0));
+//        items.add(new Record("Молоко",35.50));
+//        items.add(new Record("Сметана",60.0));
+//
+//        adapter.setData(items);
+
+//    }
 }
+
 
 
 

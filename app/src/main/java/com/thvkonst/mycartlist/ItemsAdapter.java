@@ -18,6 +18,10 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
         createData();
     }
 
+//    public void setData(List<Record> data){
+//        this.data = data;
+//    }
+
     @Override
     public ItemsAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
@@ -46,13 +50,13 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
         data.add(new Record("Каша гречневая",555.0));
         data.add(new Record("Макароны Макфа",6.0));
         data.add(new Record("Супер сковорода которая никогда не пригорает",1000.0));
-        data.add(new Record("Йогурт",120.0));
-        data.add(new Record("Пиво",34.78));
-        data.add(new Record("Чипсы",108.90));
-        data.add(new Record("Чипсы2",108.90));
-        data.add(new Record("Чипсы3",108.90));
-        data.add(new Record("Чипсы4",108.90));
-        data.add(new Record("Чипсы555",108.90));
+//        data.add(new Record("Йогурт",120.0));
+//        data.add(new Record("Пиво",34.78));
+//        data.add(new Record("Чипсы",108.90));
+//        data.add(new Record("Чипсы2",108.90));
+//        data.add(new Record("Чипсы3",108.90));
+//        data.add(new Record("Чипсы4",108.90));
+//        data.add(new Record("Чипсы555",108.90));
     }
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -69,10 +73,6 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
         public void applyData(Record record){
             title.setText(record.getTitle());
             price.setText(String.valueOf(record.getPrice())+" \u20BD");
-            //Spannable spannabletext = new SpannableString(String.valueOf(record.getPrice())+"@string/symbol_rbl");
-
-            // spannabletext.setSpan(new  );
-
         }
     }
 }

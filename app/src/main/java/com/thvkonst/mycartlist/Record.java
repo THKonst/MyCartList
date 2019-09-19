@@ -4,7 +4,6 @@ public class Record {
 
     private final String title;
     private final double price;
-    private String comment;
 
     public Record(String title, double price) {
         this.title = title;
@@ -18,8 +17,5 @@ public class Record {
     public double getPrice() {
         return price;
     }
-
-    public String getComment() {
-        return comment;
-    }
 }
+

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.viewPager);
         tablayout = findViewById(R.id.tab1);
 
-        MainPagesAdapter adapter = new MainPagesAdapter(getSupportFragmentManager());
+        MainPagesAdapter adapter = new MainPagesAdapter(getSupportFragmentManager(), this);
         pager.setAdapter(adapter);
 
         tablayout.setupWithViewPager(pager);

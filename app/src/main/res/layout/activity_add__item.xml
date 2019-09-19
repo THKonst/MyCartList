@@ -5,8 +5,8 @@
     android:id="@+id/add_new_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Add_ItemActivity"
-    android:background="@drawable/bg_pattern_1">
+    android:background="@drawable/bg_pattern"
+    tools:context=".Add_ItemActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,48 +26,48 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:background="@null"
-            android:hint="@string/hint_name"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:maxLines="1"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:imeOptions="actionNext"/>
+            android:hint="@string/hint_name"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1" />
 
         <EditText
             android:id="@+id/price"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:gravity="end"
             android:hint="@string/hint_price"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
-            android:maxLines="1"/>
+            android:maxLines="1" />
 
         <TextView
             android:id="@+id/smb_rbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:gravity="center_horizontal"
             android:text="@string/symbol_rbl"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"/>
+            android:textStyle="bold" />
 
 
         <Button
-            android:enabled="false"
             android:id="@+id/add_btn"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginStart="22dp"
             android:background="@drawable/ic_add"
-            android:contentDescription="@string/plus_button"/>
+            android:contentDescription="@string/plus_button"
+            android:enabled="false" />
 
 
     </LinearLayout>

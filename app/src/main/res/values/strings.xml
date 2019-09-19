@@ -10,5 +10,10 @@
     <string name="tab_one">Нужно купить</string>
     <string name="tab_two">Уже куплено</string>
     <string name="tab_three">Итого:</string>
+    <string-array name="tab_title">
+        <item>@string/tab_one</item>
+        <item>@string/tab_two</item>
+        <item>@string/tab_three</item>
+    </string-array>
 
 </resources>
