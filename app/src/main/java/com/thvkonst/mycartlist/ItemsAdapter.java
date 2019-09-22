@@ -16,11 +16,15 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
 
     public ItemsAdapter() {
         createData();
+
+
+
     }
 
-//    public void setData(List<Record> data){
-//        this.data = data;
-//    }
+    public void setData(List<Record> data){
+        this.data = data;
+        notifyDataSetChanged();
+    }
 
     @Override
     public ItemsAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -43,13 +47,15 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
     public int getItemCount() {return data.size();}
 
     private void createData() {
-        data.add(new Record("Хлеб",22.0));
-        data.add(new Record("Молоко",35.50));
-        data.add(new Record("Сметана",60.0));
-        data.add(new Record("Каша овсяная",34.0));
-        data.add(new Record("Каша гречневая",555.0));
-        data.add(new Record("Макароны Макфа",6.0));
-        data.add(new Record("Супер сковорода которая никогда не пригорает",1000.0));
+        data.add(new Record("Хлеб","22.00","1"));
+        setData(data);
+
+//        data.add(new Record("Молоко",35.50));
+//        data.add(new Record("Сметана",60.0));
+//        data.add(new Record("Каша овсяная",34.0));
+//        data.add(new Record("Каша гречневая",555.0));
+//        data.add(new Record("Макароны Макфа",6.0));
+//        data.add(new Record("Супер сковорода которая никогда не пригорает",1000.0));
 //        data.add(new Record("Йогурт",120.0));
 //        data.add(new Record("Пиво",34.78));
 //        data.add(new Record("Чипсы",108.90));
@@ -57,6 +63,12 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
 //        data.add(new Record("Чипсы3",108.90));
 //        data.add(new Record("Чипсы4",108.90));
 //        data.add(new Record("Чипсы555",108.90));
+    }
+
+    public void addItem(Record item) {
+        data.add(item);
+        notifyItemInserted(data.size());
+
     }
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -72,7 +84,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>{
 
         public void applyData(Record record){
             title.setText(record.getTitle());
-            price.setText(String.valueOf(record.getPrice())+" \u20BD");
+            price.setText(record.getPrice()+" \u20BD");
         }
     }
 }

@@ -1,20 +1,24 @@
 package com.thvkonst.mycartlist;
 
-public class Record {
+import java.io.Serializable;
 
-    private final String title;
-    private final double price;
+public class Record implements Serializable {
 
-    public Record(String title, double price) {
+    public final String title;
+    public final String price;
+    public String type;
+
+    public Record(String title, String price, String type) {
         this.title = title;
         this.price = price;
+        this.type = type;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 }

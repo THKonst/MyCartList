@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class MainPagesAdapter extends FragmentPagerAdapter {
 
-    private static final int PAGE_NEED = 0;
-    private static final int PAGE_DONE = 1;
-    private static final int PAGE_BALANCE = 2;
+    public static final int PAGE_NEED = 0;
+    public static final int PAGE_DONE = 1;
+    public static final int PAGE_BALANCE = 2;
 
     private String[] titles;
 
@@ -28,9 +28,9 @@ public class MainPagesAdapter extends FragmentPagerAdapter {
             case PAGE_NEED:
                return ItemsFragment.createItemsFragment(ItemsFragment.TYPE_NEED);
             case PAGE_DONE:
-                return ItemsFragment.createItemsFragment(ItemsFragment.TYPE_DONE);
+                return new DoneFragment();
             case PAGE_BALANCE:
-                return ItemsFragment.createItemsFragment(ItemsFragment.TYPE_BALANCE);
+                return new BalanceFragment();
 
                 default:
                     return null;

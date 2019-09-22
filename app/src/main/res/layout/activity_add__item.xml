@@ -8,16 +8,36 @@
     android:background="@drawable/bg_pattern"
     tools:context=".Add_ItemActivity">
 
+    <android.widget.Toolbar
+        android:theme="@style/ToolbarTheme"
+        android:id="@+id/toolbar_2"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:elevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_item_title_2"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+    </android.widget.Toolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="68dp"
-        android:layout_marginTop="16dp"
         android:background="@color/white"
+        android:elevation="6dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="22dp"
         android:paddingRight="22dp"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_2">
 
         <EditText
             android:id="@+id/name"

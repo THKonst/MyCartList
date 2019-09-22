@@ -2,7 +2,7 @@
     <string name="app_name">MyCartList</string>
     <string name="add_item_title">Новая запись</string>
     <string name="item_list_title">Мой список покупок</string>
-    <string name="text_1">Привет, Андрей!</string>
+    <string name="text_1">Мои покупки</string>
     <string name="hint_name">Название</string>
     <string name="hint_price">0.00</string>
     <string name="plus_button">add_plus</string>
@@ -10,6 +10,7 @@
     <string name="tab_one">Нужно купить</string>
     <string name="tab_two">Уже куплено</string>
     <string name="tab_three">Итого:</string>
+    <string name="add_item_title_2">Добавьте новую покупку</string>
     <string-array name="tab_title">
         <item>@string/tab_one</item>
         <item>@string/tab_two</item>
