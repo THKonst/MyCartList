@@ -16,5 +16,11 @@
         <item>@string/tab_two</item>
         <item>@string/tab_three</item>
     </string-array>
+    <string name="menu_remove">Удалить</string>
+    <string name="dialog_title">Удаление</string>
+    <string name="dialog_message">Вы уверены?</string>
+    <string name="positive_btn">Да</string>
+    <string name="negative_btn">Нет</string>
+    <string name="login_btn">Войти</string>
 
 </resources>

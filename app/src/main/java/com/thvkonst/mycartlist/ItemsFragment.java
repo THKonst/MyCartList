@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,6 +61,7 @@ public class ItemsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = new ItemsAdapter();
+        adapter.setListener(new AdapterListener());
 
         Bundle bundle = getArguments();
         type = bundle.getInt(TYPE_KEY, TYPE_UNKNOWN);
@@ -107,16 +113,78 @@ public class ItemsFragment extends Fragment {
 
         super.onActivityResult(requestCode, resultCode, data);
     }
+    /*        ACTION MODE      */
+    private ActionMode actionMode1 = null;
+    private void removeSelectedItems(){
+        for (int i=adapter.getSelectedItems().size()-1; i>=0; i--){
+            adapter.remove(adapter.getSelectedItems().get(i));
+        }
+        actionMode1.finish();
+    }
 
-    //    private void loadItems(){
-//        List<Record> items = new ArrayList<>();
-//        items.add(new Record("Хлеб",22.0));
-//        items.add(new Record("Молоко",35.50));
-//        items.add(new Record("Сметана",60.0));
-//
-//        adapter.setData(items);
 
-//    }
+    private class AdapterListener implements ItemsAdapterListener{
+
+        @Override
+        public void OnItemClick(Record record, int position) {
+            if(isInActionMode()){
+                toggleSelection(position);
+            }
+
+        }
+
+        @Override
+        public void OnItemLongClick(Record record, int position) {
+            if (isInActionMode()){
+                return;
+            }
+            actionMode1 = ((AppCompatActivity)getActivity()).startSupportActionMode(actionModeCallback);
+            toggleSelection(position);
+        }
+
+        private boolean isInActionMode(){
+            return actionMode1!= null;
+        }
+
+        private void toggleSelection(int position){
+            adapter.toggleSelection(position);
+        }
+    }
+    private ActionMode.Callback actionModeCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+            MenuInflater inflater = new MenuInflater(getContext());
+            inflater.inflate(R.menu.items_menu, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+
+            switch (menuItem.getItemId()){
+                case (R.id.remove):
+                    showDialog();
+                    break;
+            }
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode actionMode) {
+            adapter.clearSelections();
+            actionMode1 = null;
+        }
+    };
+    private void showDialog(){
+        ConfirmationDialog dialog = new ConfirmationDialog();
+        dialog.show(getFragmentManager(),"ConfirmationDialog");
+
+    }
 }
 
 
